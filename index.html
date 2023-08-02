@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3</title>
+</head>
+<style>
+*{font-size: 50px;}
+body{background-image: url("img.jpg");}
+h1{color: black;}
+</style>
+<script>
+function show()
+{
+event.preventDefault();
+let name = document.getElementById("name");
+let ans = document.getElementById("ans");
+let job = document.getElementById("job");
+let ms = document.getElementById("ms");
+let mba =document.getElementById("mba");
+
+if(name.value=="")
+
+{
+alert("You Did not Enter Your Name");
+name.focus();
+ans.innerHTML="";
+return;
+
+}
+else if(name.value.trim()=="")
+{
+    alert("Name can not be only Space");
+    name.value="";
+    ans.innerHTML="";
+    return;
+
+}
+else if (! name.value.match(/^[A-Za-z]+$/))
+{
+    alert("Name should Containts only alphabets");
+    name.value="";
+    ans.innerHTML="";
+    return;
+}
+let choice="";
+if(job.checked)         choice="job"
+else if(ms.checked)         choice="MS"
+else          choice="MBA"
+
+let msg="name=" + name.value  + " choice  " + choice;
+ans.innerHTML=msg;
+}
+
+</script>
+<body>
+    <center>
+        <h1>What Next</h1>
+     <form onsubmit="show()">
+    <input type="text" placeholder="Enter your Name" id="name"/>
+    <br><br>
+    <input type="radio" name="c" id="job" checked="true"/> Job
+    <input type="radio" name="c" id="ms" />MS
+    <input type="radio" name="c" id="MBA" />MBA
+    <br><br>
+    <input type="submit">
+
+    </form>   
+    <h2 id="ans"></h2>
+    </center>
+</body>
+</html>
